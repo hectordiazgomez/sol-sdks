@@ -1,0 +1,25 @@
+{
+  "name": "buildsol",
+  "version": "0.1.0",
+  "description": "Official Sol SDK for Node.js and TypeScript: streaming speech, voices, transcription and translation.",
+  "license": "MIT",
+  "author": "Sol",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {".": {"import": {"types": "./dist/index.d.ts", "default": "./dist/index.js"}, "require": {"types": "./dist/index.d.cts", "default": "./dist/index.cjs"}}},
+  "files": ["dist", "README.md", "LICENSE", "CHANGELOG.md"],
+  "engines": {"node": ">=20"},
+  "repository": {"type": "git", "url": "git+https://github.com/hectordiazgomez/sol-sdks.git", "directory": "javascript"},
+  "homepage": "https://www.buildsol.ai/docs#sdks",
+  "bugs": "https://github.com/hectordiazgomez/sol-sdks/issues",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean --target node20",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "prepack": "npm run build"
+  },
+  "dependencies": {"ws": "^8.18.0"},
+  "devDependencies": {"@types/node": "^22.10.0", "@types/ws": "^8.5.13", "tsup": "^8.5.0", "typescript": "^5.9.3"}
+}
