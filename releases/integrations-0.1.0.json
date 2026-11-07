@@ -1,0 +1,25 @@
+{
+  "version": "integrations-v0.1.0",
+  "files": {
+    "buildsol_livekit-0.1.0-py3-none-any.whl": {
+      "bytes": 4746,
+      "sha256": "b38904db3894e8c55164f30266bcca7f6d76b53cf66c779678de1e70ae0259ea"
+    },
+    "buildsol_livekit-0.1.0.tar.gz": {
+      "bytes": 3900,
+      "sha256": "a1cfe9b89db6fdf71c1e914e335b95499b7b1dd62a810e07798569a4d7a3a611"
+    },
+    "buildsol_pipecat-0.1.0-py3-none-any.whl": {
+      "bytes": 4757,
+      "sha256": "695935ecbee2330adadc99ebfea761f12ee29031878322ad1d2e97e11c66bbc4"
+    },
+    "buildsol_pipecat-0.1.0.tar.gz": {
+      "bytes": 3878,
+      "sha256": "aa6b3fcb1ddde14e9050e620469ab10b9369045c8492a581e5b141efa1b43e14"
+    }
+  },
+  "tested": {
+    "livekit-agents": "1.8.11",
+    "pipecat-ai": "1.15.0"
+  }
+}

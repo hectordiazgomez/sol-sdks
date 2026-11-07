@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "buildsol-pipecat"
+version = "0.1.0"
+description = "Sol streaming text-to-speech for Pipecat"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Sol"}]
+dependencies = ["buildsol>=0.1.1,<1", "pipecat-ai>=1.15.0,<1.16"]
+
+[project.urls]
+Homepage = "https://www.buildsol.ai"
+Repository = "https://github.com/hectordiazgomez/sol-sdks"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/buildsol_pipecat"]
