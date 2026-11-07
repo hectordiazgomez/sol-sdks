@@ -58,7 +58,7 @@ class LiveConnection(_State):
                 self.session["url"],
                 open_timeout=self.timeout,
                 close_timeout=5,
-                user_agent_header="buildsol-python/0.1.0",
+                user_agent_header="buildsol-python/0.1.1",
             )
             self.socket = self.context.__enter__()
             self.socket.send(
@@ -121,7 +121,7 @@ class AsyncLiveConnection(_State):
                 self.session["url"],
                 open_timeout=self.timeout,
                 close_timeout=5,
-                user_agent_header="buildsol-python/0.1.0",
+                user_agent_header="buildsol-python/0.1.1",
             )
             await self.socket.send(
                 json.dumps({"type": "start", "token": self.session["token"]})

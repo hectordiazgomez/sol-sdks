@@ -5,10 +5,10 @@ Official server-side Node.js 20+ client with TypeScript declarations, ESM and Co
 ## Install
 
 ```sh
-npm install 'https://github.com/hectordiazgomez/sol-sdks/releases/download/v0.1.0/buildsol-0.1.0.tgz'
+npm install buildsol
 ```
 
-The versioned package is distributed through GitHub Releases. npm registry publication is pending. For development, clone the repository and run `npm ci && npm run build` in `javascript/`.
+Install the official `buildsol` package from [npm](https://www.npmjs.com/package/buildsol). For development, clone the repository and run `npm ci && npm run build` in `javascript/`.
 
 Set `SOL_API_KEY` in your server environment. Do not bundle this SDK or permanent API keys into a browser.
 

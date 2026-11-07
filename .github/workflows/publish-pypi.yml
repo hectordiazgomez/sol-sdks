@@ -1,0 +1,55 @@
+name: Publish Python SDK to PyPI
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Existing reviewed GitHub release version
+        required: true
+        default: "0.1.1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-pypi
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/buildsol/
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Download and verify reviewed distributions
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, pathlib, re, urllib.request
+          version = os.environ['RELEASE_VERSION']
+          assert re.fullmatch(r'\d+\.\d+\.\d+', version)
+          manifest = json.loads(pathlib.Path(f'releases/{version}.json').read_text())
+          assert manifest['version'] == version
+          destination = pathlib.Path('dist')
+          destination.mkdir()
+          for name in [f'buildsol-{version}-py3-none-any.whl', f'buildsol-{version}.tar.gz']:
+              expected = manifest['files'][name]
+              url = f'https://github.com/{os.environ["GITHUB_REPOSITORY"]}/releases/download/v{version}/{name}'
+              with urllib.request.urlopen(url, timeout=60) as response:
+                  data = response.read()
+              assert len(data) == expected['bytes'], name
+              assert hashlib.sha256(data).hexdigest() == expected['sha256'], name
+              (destination / name).write_bytes(data)
+              print(f'Verified {name}')
+          PY
+      - name: Publish to PyPI using short-lived OIDC credentials
+        uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086
+        with:
+          packages-dir: dist/

@@ -7,11 +7,11 @@ Official SDKs for [Sol](https://www.buildsol.ai): streaming text to speech, voic
 | [Python](python/README.md) | Python 3.10+ | `buildsol` — `Sol` and `AsyncSol` |
 | [JavaScript / TypeScript](javascript/README.md) | Node.js 20+ | `buildsol` — ESM, CommonJS and TypeScript |
 
-**Distribution:** versioned packages are available in [GitHub Releases](https://github.com/hectordiazgomez/sol-sdks/releases). Publication to the npm and PyPI registries is pending account access. Use the release installation commands below; do not assume `pip install buildsol` or `npm install buildsol` is published yet.
+**Packages:** [Python on PyPI](https://pypi.org/project/buildsol/) and [JavaScript/TypeScript on npm](https://www.npmjs.com/package/buildsol). Versioned archives and checksums are also available in [GitHub Releases](https://github.com/hectordiazgomez/sol-sdks/releases).
 
 ```sh
-python -m pip install 'https://github.com/hectordiazgomez/sol-sdks/releases/download/v0.1.0/buildsol-0.1.0-py3-none-any.whl'
-npm install 'https://github.com/hectordiazgomez/sol-sdks/releases/download/v0.1.0/buildsol-0.1.0.tgz'
+python -m pip install buildsol
+npm install buildsol
 ```
 
 Create an API key at https://www.buildsol.ai/api-keys and set `SOL_API_KEY` in your server environment. Never put permanent keys in browsers, mobile bundles, logs or source control. Both clients call **https://api.buildsol.ai/v1** and never use private Studio/GPU endpoints.

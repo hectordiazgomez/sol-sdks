@@ -1,0 +1,22 @@
+{
+  "version": "0.1.1",
+  "files": {
+    "buildsol-0.1.1-py3-none-any.whl": {
+      "bytes": 15164,
+      "sha256": "e48a25974f7e88144a337d537cb393ca6b693e27fa5354a94285a556bacd4156"
+    },
+    "buildsol-0.1.1.tar.gz": {
+      "bytes": 13969,
+      "sha256": "a9bb00fb65d76c4b64a41623c8847617311bf2c91f0878c70ca724a136f7d45b"
+    },
+    "buildsol-0.1.1.tgz": {
+      "bytes": 14053,
+      "sha256": "64a6c68ca33fcaf56fbd5aceebbceaef632f3cfc762d190e17e5fcfd4454501c"
+    }
+  },
+  "tests": {
+    "python": 23,
+    "javascript": 15
+  },
+  "no_public_api_behavior_changes": true
+}

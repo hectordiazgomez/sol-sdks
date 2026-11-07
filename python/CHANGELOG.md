@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+- Prepare npm and PyPI distribution with standard registry installation instructions.
+- No public API or runtime behavior changes from 0.1.0.
+
 ## 0.1.0
 
 Initial Python and JavaScript/TypeScript SDK release:

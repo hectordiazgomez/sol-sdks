@@ -16,7 +16,7 @@ export class LiveConnection implements AsyncIterable<SolEvent> {
     const url = new URL(session.url);
     if (url.username || url.password || !["ws:", "wss:"].includes(url.protocol)) throw new Error("Invalid WebSocket URL");
     if (url.protocol !== "wss:" && !["localhost", "127.0.0.1", "[::1]"].includes(url.hostname)) throw new Error("Remote WebSocket URL must use WSS");
-    this.socket = new WebSocket(url, {handshakeTimeout: options.timeoutMs ?? 30_000, maxPayload: 8 * 1024 * 1024, headers: {"User-Agent": "buildsol-node/0.1.0"}});
+    this.socket = new WebSocket(url, {handshakeTimeout: options.timeoutMs ?? 30_000, maxPayload: 8 * 1024 * 1024, headers: {"User-Agent": "buildsol-node/0.1.1"}});
     this.abort = () => { this.fail(new AbortError("Live session cancelled")); this.socket.terminate(); };
     options.signal?.addEventListener("abort", this.abort, {once: true});
     this.socket.on("message", (data, binary) => {

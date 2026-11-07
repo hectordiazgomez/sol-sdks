@@ -3,7 +3,7 @@ import { basename } from "node:path";
 import { setTimeout as sleep } from "node:timers/promises";
 import { APIError, AbortError, ConnectionError, ProtocolError, TimeoutError, apiError } from "./errors.js";
 import type { FileInput, IdempotentOptions, SolOptions, Upload } from "./types.js";
-export const VERSION = "0.1.0";
+export const VERSION = "0.1.1";
 export async function fromFile(path: string, contentType = "application/octet-stream"): Promise<Upload> {
   return {data: await readFile(path), filename: basename(path), contentType};
 }

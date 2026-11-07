@@ -1,28 +1,13 @@
-# Release 0.1.0
+# Publishing the SDKs
 
-Python distribution: `buildsol-0.1.0-py3-none-any.whl` and `buildsol-0.1.0.tar.gz`.
-Node distribution: `buildsol-0.1.0.tgz`.
+The public distribution name is `buildsol` on both registries. Version 0.1.0 remains the initial GitHub-only release; 0.1.1 adds registry distribution and updated installation instructions without API behavior changes.
 
-Build and validate from a clean checkout:
+1. Run the Python and JavaScript tests, build the distributions and inspect package contents.
+2. Record every archive's byte size and SHA256 in `releases/<version>.json`.
+3. Create the matching GitHub release with those exact archives and `SHA256SUMS`.
+4. Check that the version does not already exist in either registry.
+5. npm: sign in with `npm login --auth-type=web`, then publish the reviewed `.tgz` with `npm publish <archive> --access public`.
+6. PyPI: configure a Trusted Publisher for owner `hectordiazgomez`, repository `sol-sdks`, workflow `publish-pypi.yml`, environment `pypi`. Run that workflow manually from `main` with the reviewed version. It verifies the release archives before using short-lived OIDC credentials.
+7. Verify registry hashes and install both packages into clean environments. Update website install snippets only after the registry installations pass.
 
-```sh
-python -m pip install build twine
-python -m build python
-python -m twine check python/dist/*
-cd javascript
-npm ci
-npm run typecheck
-npm test
-npm pack
-```
-
-Registry publication is pending the owner's npm/PyPI access. After authentication, check that version 0.1.0 does not already exist, inspect these exact artifacts and publish:
-
-```sh
-# In javascript/, after npm login (may require account MFA):
-npm publish buildsol-0.1.0.tgz --access public
-# From the repository root, with PyPI authentication configured outside source:
-python -m twine upload python/dist/*
-```
-
-Never include tokens in command arguments or the repository. Use interactive login, an approved credential store or trusted publishing. A successful local build, GitHub upload or dry run is not a successful registry publication. Verify both public registries by installing into clean environments. Only then switch website install snippets to `pip install buildsol` / `npm install buildsol` and remove the pending-registry notice.
+Never put registry tokens in source, logs or command arguments. Publishing success must be verified against each registry; a local build or GitHub release is not registry publication.

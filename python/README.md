@@ -5,10 +5,10 @@ Official synchronous and asynchronous Python client. Requires Python 3.10+.
 ## Install
 
 ```sh
-python -m pip install 'https://github.com/hectordiazgomez/sol-sdks/releases/download/v0.1.0/buildsol-0.1.0-py3-none-any.whl'
+python -m pip install buildsol
 ```
 
-The versioned wheel is distributed through GitHub Releases. PyPI publication is pending. For development, clone this repository and run `pip install -e './python[dev]'`.
+Install the official `buildsol` package from [PyPI](https://pypi.org/project/buildsol/). For development, clone this repository and run `pip install -e './python[dev]'`.
 
 Set `SOL_API_KEY` on your server, then:
 

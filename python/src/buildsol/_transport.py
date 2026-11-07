@@ -16,7 +16,7 @@ import httpx
 from .errors import ConnectionError, ProtocolError, TimeoutError, api_error
 from .types import Upload
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 
 
 def upload(value: Upload) -> tuple[str, bytes, str]:

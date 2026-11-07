@@ -1,6 +1,6 @@
 {
   "name": "buildsol",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Official Sol SDK for Node.js and TypeScript: streaming speech, voices, transcription and translation.",
   "license": "MIT",
   "author": "Sol",
