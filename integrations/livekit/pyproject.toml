@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "buildsol-livekit"
+version = "0.1.0"
+description = "Sol streaming text-to-speech for LiveKit Agents"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Sol"}]
+dependencies = ["buildsol>=0.1.1,<1", "livekit-agents>=1.8.11,<1.9"]
+
+[project.urls]
+Homepage = "https://www.buildsol.ai"
+Repository = "https://github.com/hectordiazgomez/sol-sdks"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/buildsol_livekit"]

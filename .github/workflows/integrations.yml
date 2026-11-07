@@ -1,0 +1,22 @@
+name: Voice integration tests
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  integrations:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -e './python[dev]' -e integrations/livekit -e integrations/pipecat
+      - run: pytest integrations/tests -q --asyncio-mode=auto -o asyncio_default_fixture_loop_scope=function
+      - run: ruff check integrations examples/livekit_agent.py examples/pipecat_speech.py --select F,I
+      - run: python -m build integrations/livekit && python -m build integrations/pipecat
+      - run: python -m twine check integrations/livekit/dist/* integrations/pipecat/dist/*

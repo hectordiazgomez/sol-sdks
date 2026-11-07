@@ -77,3 +77,17 @@ Both clients require HTTPS for remote API URLs, disable redirects to avoid forwa
 - [Runnable examples](examples/)
 - [REST reference](https://www.buildsol.ai/docs)
 - [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [MIT license](LICENSE)
+
+## Voice agent integrations
+
+Add Sol speech to your existing Python agent with a separate, optional adapter:
+
+| Framework | Package | Guide |
+| --- | --- | --- |
+| LiveKit Agents | `buildsol-livekit` | [Install and connect](integrations/livekit/README.md) |
+| Pipecat | `buildsol-pipecat` | [Install and connect](integrations/pipecat/README.md) |
+
+These Sol-maintained adapters are distributed through the versioned GitHub
+release `integrations-v0.1.0`. They are not yet registry packages or native
+entries in the platforms' hosted provider selectors. They do not change or
+add dependencies to the base Python or JavaScript SDK.
